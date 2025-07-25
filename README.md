@@ -1,63 +1,52 @@
-# AI Club Website
+# IOAI - International Organization for Artificial Intelligence
 
-A modern, responsive website for an AI Club built with React, TypeScript, and Tailwind CSS.
+A modern, responsive website for the International Organization for Artificial Intelligence (IOAI), showcasing global research initiatives, international events, and the organization's mission to advance AI for humanity's benefit. Built with React, TypeScript, Tailwind CSS, and Vite.
 
-## 🚀 Features
+## 🌍 About IOAI
 
-- **Modern Design**: Clean, professional design with smooth animations and transitions
-- **Responsive**: Fully responsive design that works on all devices
-- **TypeScript**: Full TypeScript support for better development experience
-- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
-- **React Router**: Client-side routing for seamless navigation
-- **Component-Based**: Modular component architecture for maintainability
+The International Organization for Artificial Intelligence (IOAI) is a global institution dedicated to advancing artificial intelligence technology for the benefit of humanity through international cooperation, research, and policy development. IOAI brings together researchers, policymakers, industry leaders, and civil society from around the world to address the most pressing challenges and opportunities in artificial intelligence.
 
-## 📋 Pages
+## ✨ Features
 
-- **Home**: Hero section, features, statistics, and call-to-action
-- **Projects**: Showcase of AI projects with status indicators
-- **Events**: Upcoming events, workshops, and hackathons
-- **About**: Mission, team, and timeline
-- **Contact**: Contact form and information
+- **Modern Design**: Beautiful gradient backgrounds, glass morphism effects, and smooth animations
+- **Responsive Layout**: Fully responsive design that works on all devices
+- **Interactive Elements**: Hover effects, smooth transitions, and engaging animations
+- **Global Content**: International research initiatives, global events, and worldwide offices
+- **Contact Form**: Functional contact form with validation and loading states
+- **Animated Background**: Custom canvas-based animated background with particles and raindrops
+- **Navigation**: Fixed navigation with smooth scrolling and mobile menu
 
-## 🛠️ Tech Stack
+## 🚀 Technologies Used
 
-- **Frontend**: React 18, TypeScript
-- **Styling**: Tailwind CSS
-- **Routing**: React Router DOM
-- **Build Tool**: Vite
-- **Package Manager**: pnpm
+- **React 18** - Modern React with hooks and functional components
+- **TypeScript** - Type-safe JavaScript development
+- **Tailwind CSS** - Utility-first CSS framework for rapid UI development
+- **Vite** - Fast build tool and development server
+- **React Router** - Client-side routing
+- **Canvas API** - Custom animated background
 
-## 🚀 Getting Started
+## 📦 Installation
 
-### Prerequisites
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd IOAI-Project
+   ```
 
-- Node.js (v16 or higher)
-- pnpm (recommended) or npm
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
 
-### Installation
+3. **Start the development server**
+   ```bash
+   pnpm dev
+   ```
 
-1. Clone the repository:
+4. **Open your browser**
+   Navigate to `http://localhost:5173`
 
-```bash
-git clone <repository-url>
-cd ai-club-website
-```
-
-2. Install dependencies:
-
-```bash
-pnpm install
-```
-
-3. Start the development server:
-
-```bash
-pnpm dev
-```
-
-4. Open your browser and navigate to `http://localhost:5173`
-
-### Available Scripts
+## 🛠️ Available Scripts
 
 - `pnpm dev` - Start development server
 - `pnpm build` - Build for production
@@ -69,82 +58,130 @@ pnpm dev
 ```
 src/
 ├── components/          # Reusable components
-│   ├── Navigation.tsx   # Navigation bar
+│   ├── Navigation.tsx   # Main navigation component
 │   └── Footer.tsx       # Footer component
 ├── pages/              # Page components
-│   ├── Home.tsx        # Home page
-│   ├── Projects.tsx    # Projects page
-│   ├── Events.tsx      # Events page
-│   ├── About.tsx       # About page
-│   └── Contact.tsx     # Contact page
-├── App.tsx             # Main app component
-├── main.tsx            # Entry point
-└── index.css           # Global styles
+│   ├── Home.tsx        # Homepage with global mission
+│   ├── Projects.tsx    # Research initiatives showcase
+│   ├── Events.tsx      # International events and conferences
+│   ├── About.tsx       # Organization information and leadership
+│   ├── Contact.tsx     # Contact form and global offices
+│   └── RaindropBackground.tsx # Animated background component
+├── animations.tsx      # Animation utilities
+├── App.tsx            # Main app component
+├── main.tsx           # App entry point
+└── index.css          # Global styles and Tailwind imports
 ```
 
-## 🎨 Customization
+## 🌟 Key Features
+
+### Global Research Initiatives
+- AI Ethics Framework development
+- Climate Change AI solutions
+- Healthcare AI platform
+- Education and policy programs
+- International security protocols
+
+### International Events
+- Global AI Summits
+- International conferences
+- Regional workshops
+- Policy forums
+- Research symposiums
+
+### Global Presence
+- Headquarters in Geneva, Switzerland
+- Regional offices in New York, Tokyo, and Nairobi
+- International partnerships and collaborations
+- Multi-language support capabilities
+
+## 🎨 Design System
+
+The website uses a modern design system with:
+- **Color Palette**: Primary blues and secondary gradients
+- **Typography**: Inter font family for clean readability
+- **Components**: Glass morphism cards with backdrop blur
+- **Animations**: Smooth transitions and hover effects
+- **Responsive**: Mobile-first design approach
+
+## 🔧 Customization
 
 ### Colors
-
-The color scheme can be customized in `tailwind.config.js`:
-
+Update the color scheme in `tailwind.config.js`:
 ```javascript
-colors: {
-  primary: {
-    50: '#eff6ff',
-    100: '#dbeafe',
-    // ... more shades
-  },
-  secondary: {
-    // ... secondary colors
+theme: {
+  extend: {
+    colors: {
+      primary: {
+        50: '#eff6ff',
+        // ... other shades
+        900: '#1e3a8a',
+      },
+      secondary: {
+        // ... secondary color palette
+      }
+    }
   }
 }
 ```
 
-### Components
-
-All components are built with Tailwind CSS classes and can be easily customized by modifying the className props.
+### Content
+- Update organization information in respective page components
+- Modify research projects in `src/pages/Projects.tsx`
+- Edit events in `src/pages/Events.tsx`
+- Update leadership team in `src/pages/About.tsx`
 
 ## 📱 Responsive Design
 
-The website is fully responsive with breakpoints:
+The website is fully responsive and optimized for:
+- **Desktop**: Full-featured experience with all animations
+- **Tablet**: Optimized layout with touch-friendly interactions
+- **Mobile**: Streamlined navigation and mobile-optimized content
 
-- Mobile: < 768px
-- Tablet: 768px - 1024px
-- Desktop: > 1024px
+## 🚀 Deployment
 
-## 🔧 Development
+### Build for Production
+```bash
+pnpm build
+```
 
-### Adding New Pages
+### Deploy to Vercel
+1. Connect your repository to Vercel
+2. Vercel will automatically detect the Vite configuration
+3. Deploy with default settings
 
-1. Create a new component in `src/pages/`
-2. Add the route in `src/App.tsx`
-3. Update navigation in `src/components/Navigation.tsx`
-
-### Styling
-
-- Use Tailwind CSS utility classes
-- Custom components are defined in `src/index.css`
-- Follow the existing design patterns
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+### Deploy to Netlify
+1. Build the project: `pnpm build`
+2. Upload the `dist` folder to Netlify
+3. Configure build settings if needed
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -am 'Add feature'`
+4. Push to the branch: `git push origin feature-name`
+5. Submit a pull request
 
-## 📞 Support
+## 📄 License
 
-For support or questions, please contact:
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-- Email: info@aiclub.com
-- Phone: (555) 123-4567
+## 🌐 IOAI Mission
+
+IOAI is committed to:
+- **Global Cooperation**: Fostering international collaboration and knowledge sharing
+- **Ethical Development**: Ensuring AI development aligns with human values and rights
+- **Inclusive Access**: Democratizing AI benefits across all nations and communities
+- **Sustainable Impact**: Addressing global challenges through AI innovation
+
+## 📞 Contact
+
+For more information about IOAI:
+- **Email**: info@ioai.org
+- **Phone**: +41 22 917 1234
+- **Address**: Palais des Nations, 1211 Geneva, Switzerland
 
 ---
 
-Built with ❤️ by the AI Club team
+Built with ❤️ for the global AI community by IOAI

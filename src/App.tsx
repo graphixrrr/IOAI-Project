@@ -24,7 +24,7 @@ function App() {
     <>
       <NavBar onNavigate={handleNavigate} />
       <RaindropBackground />
-      <main className="main-content">
+      <main className="main-content pt-16">
         <Routes>
           <Route 
             path="/" 

@@ -27,13 +27,15 @@ const RaindropBackground = () => {
       speed: number;
       length: number;
       opacity: number;
+      color: string;
 
       constructor() {
         this.x = Math.random() * (canvas?.width || window.innerWidth);
         this.y = -10;
-        this.speed = 2 + Math.random() * 3;
-        this.length = 10 + Math.random() * 20;
-        this.opacity = 0.1 + Math.random() * 0.3;
+        this.speed = 1 + Math.random() * 2;
+        this.length = 15 + Math.random() * 25;
+        this.opacity = 0.1 + Math.random() * 0.4;
+        this.color = `hsl(${200 + Math.random() * 60}, 70%, 60%)`;
       }
 
       update() {
@@ -41,31 +43,93 @@ const RaindropBackground = () => {
         if (this.y > (canvas?.height || window.innerHeight)) {
           this.y = -10;
           this.x = Math.random() * (canvas?.width || window.innerWidth);
+          this.opacity = 0.1 + Math.random() * 0.4;
         }
       }
 
       draw() {
         if (!ctx) return;
-        ctx.strokeStyle = `rgba(59, 130, 246, ${this.opacity})`;
+        ctx.strokeStyle = this.color;
+        ctx.globalAlpha = this.opacity;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(this.x, this.y);
         ctx.lineTo(this.x, this.y + this.length);
         ctx.stroke();
+        ctx.globalAlpha = 1;
       }
     }
 
-    // Create raindrops
+    // Particle class for floating elements
+    class Particle {
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      opacity: number;
+      color: string;
+
+      constructor() {
+        this.x = Math.random() * (canvas?.width || window.innerWidth);
+        this.y = Math.random() * (canvas?.height || window.innerHeight);
+        this.size = 2 + Math.random() * 3;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.opacity = 0.1 + Math.random() * 0.3;
+        this.color = `hsl(${220 + Math.random() * 40}, 80%, 70%)`;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > (canvas?.width || window.innerWidth) || this.x < 0) {
+          this.speedX = -this.speedX;
+        }
+        if (this.y > (canvas?.height || window.innerHeight) || this.y < 0) {
+          this.speedY = -this.speedY;
+        }
+      }
+
+      draw() {
+        if (!ctx) return;
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.opacity;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    // Create raindrops and particles
     const raindrops: Raindrop[] = [];
-    for (let i = 0; i < 100; i++) {
+    const particles: Particle[] = [];
+    
+    for (let i = 0; i < 150; i++) {
       raindrops.push(new Raindrop());
+    }
+    
+    for (let i = 0; i < 50; i++) {
+      particles.push(new Particle());
     }
 
     // Animation loop
     const animate = () => {
       if (!ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
       
+      // Clear canvas with a subtle fade effect
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.01)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Update and draw particles
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      
+      // Update and draw raindrops
       raindrops.forEach(raindrop => {
         raindrop.update();
         raindrop.draw();
